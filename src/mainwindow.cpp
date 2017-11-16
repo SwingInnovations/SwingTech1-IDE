@@ -27,7 +27,9 @@ void MainWindow::initGUI()
     auto copyAct = new QAction("&Copy", this);
     auto pasteAct = new QAction("&Paste", this);
 
-    auto fileMenu = this->menuBar()->addMenu("&File");
+    auto preferencesAct = new QAction("&Preferences", this);
+
+    auto fileMenu = menuBar()->addMenu("&File");
     fileMenu->addAction(newAct);
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveAct);
@@ -35,11 +37,33 @@ void MainWindow::initGUI()
     fileMenu->addSeparator();
     fileMenu->addAction(quitAct);
 
-    auto editMenu = this->menuBar()->addMenu("&Edit");
+    auto editMenu = menuBar()->addMenu("&Edit");
     editMenu->addAction(undoAct);
     editMenu->addAction(redoAct);
     editMenu->addSeparator();
     editMenu->addAction(cutAct);
     editMenu->addAction(copyAct);
     editMenu->addAction(pasteAct);
+    editMenu->addSeparator();
+    editMenu->addAction(preferencesAct);
+
+    auto window = menuBar()->addMenu("&Window");
+
+    auto helpMenu = menuBar()->addMenu("&Help");
+
+    statusBar()->addWidget(new QLabel("Test", this));
+    m_assetBrowser = new STAssetBrowser();
+    auto assetDockWidget = new QDockWidget("Assets", this);
+    assetDockWidget->setWidget(m_assetBrowser);
+
+    auto outliner = new QDockWidget("Outline", this);
+
+    auto inspector = new QDockWidget("Inspector", this);
+
+    m_viewport = new STViewport(this);
+    setCentralWidget(m_viewport);
+
+    addDockWidget(Qt::BottomDockWidgetArea, assetDockWidget, Qt::Horizontal);
+    addDockWidget(Qt::RightDockWidgetArea, inspector);
+    addDockWidget(Qt::LeftDockWidgetArea, outliner);
 }

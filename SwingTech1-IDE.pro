@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,7 +23,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+SOURCES += src/main.cpp \
+        src/mainwindow.cpp \
+    src/Widgets/stviewport.cpp \
+    src/Widgets/Views/stassetbrowser.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += src/mainwindow.h \
+    src/Widgets/stviewport.h \
+    src/Widgets/Views/stassetbrowser.h

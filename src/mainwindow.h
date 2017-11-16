@@ -5,6 +5,12 @@
 #include <QAction>
 #include <QMenu>
 #include <QMenuBar>
+#include <QStatusBar>
+#include <QDockWidget>
+#include <QLabel>
+
+#include "Widgets/stviewport.h"
+#include "Widgets/Views/stassetbrowser.h"
 
 class MainWindow : public QMainWindow
 {
@@ -15,6 +21,10 @@ public:
     ~MainWindow();
 private:
     void initGUI(void);
+    STViewport* m_viewport;
+
+    //Windows
+    STAssetBrowser* m_assetBrowser;
 };
 
 #endif // MAINWINDOW_H
