@@ -3,17 +3,31 @@
 
 #include <QObject>
 #include <QWidget>
-#include <QtOpenGL/QGLWidget>
+#include <QDebug>
+#include <QMouseEvent>
+#include <QOpenGLWidget>
+#include <QOpenGLFunctions>
 
-class STViewport : public QGLWidget
+/**
+ * @brief The STViewport class
+ */
+class STViewport : public QOpenGLWidget
 {
     Q_OBJECT
 public:
     STViewport(QWidget* parent = 0);
 protected:
-    void initializeGL();
-    void resizeGL();
-    void paintGL();
+    void initializeGL() override;
+    void resizeGL(int w, int h) override;
+    void paintGL() override;
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+private:
+    bool m_isLeftMouseDown;
+    bool m_isRightMouseDown;
+    QOpenGLFunctions* gl;
+    bool m_core;
 };
 
 #endif // STVIEWPORT_H

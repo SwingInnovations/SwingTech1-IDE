@@ -26,8 +26,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += src/main.cpp \
         src/mainwindow.cpp \
     src/Widgets/stviewport.cpp \
-    src/Widgets/Views/stassetbrowser.cpp
+    src/Widgets/Views/stassetbrowser.cpp \
+    src/Widgets/Views/stinspectorview.cpp \
+    src/Widgets/Views/stoutlinerview.cpp \
+    src/stsceneeditormanager.cpp
 
 HEADERS  += src/mainwindow.h \
     src/Widgets/stviewport.h \
-    src/Widgets/Views/stassetbrowser.h
+    src/Widgets/Views/stassetbrowser.h \
+    src/Widgets/Views/stinspectorview.h \
+    src/Widgets/Views/stoutlinerview.h \
+    src/stsceneeditormanager.h
